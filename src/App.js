@@ -1,4 +1,5 @@
-import './App.css';
+/** @jsxImportSource @emotion/react */
+import { css, ThemeProvider } from '@emotion/react';
 
 function App() {
   return (
