@@ -36,11 +36,29 @@ const KeyboardButton = styled.button`
 `
 
 export const Keyboard = () => {
+
+  const keyButtons = ['Enter', 0, 1, 2, 3, 4, 5, 6, 7, 'Back'];
+
+  /** Add event listeners */
+  const handleClick = (e) => {
+    console.log('You clicked the button');
+  }
+
+  const handleKeyPress = (e) => {
+    console.log(e.target.value);
+  }
+
   return (
     <KeyboardSection>
       <KeyboardRow>
-        {['Enter', 0, 1, 2, 3, 4, 5, 6, 7, 'Back'].map((digit) => {
-          return <KeyboardButton key={digit}>{digit}</KeyboardButton>
+        {keyButtons.map((digit) => {
+          return <KeyboardButton 
+                    key={digit}
+                    onClick={handleClick}
+                    onKeyDown={handleKeyPress}
+                  >
+                    {digit}
+                  </KeyboardButton>
         })}
       </KeyboardRow>
     </KeyboardSection>
