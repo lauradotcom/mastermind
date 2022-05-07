@@ -39,7 +39,7 @@ export const Keyboard = () => {
 
   const keyButtons = ['Enter', '0', '1', '2', '3', '4', '5', '6', '7', 'Backspace'];
 
-  /** Add event listeners */
+  /** Add event listeners to support keyboard entry or Keyboard component clicks */
   const handleClick = (key) => {
     console.log(`You clicked the ${key} button`);
   }
