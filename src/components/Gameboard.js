@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { initBoard } from './Numbers';
 
 export const Gameboard = ({ board, setBoard }) => {
 
@@ -55,7 +54,7 @@ export const Gameboard = ({ board, setBoard }) => {
         <TileGrid>
           {board.map((i) => (
             <TileRow key={i}>
-              {[0,1,2,3].map((i) => (
+              {[0, 1, 2, 3].map((i) => (
                 <Tile key={i}></Tile>
               ))}
             </TileRow>

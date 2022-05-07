@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
 
 const KeyboardSection = styled.section`
@@ -37,29 +37,37 @@ const KeyboardButton = styled.button`
 
 export const Keyboard = () => {
 
-  const keyButtons = ['Enter', 0, 1, 2, 3, 4, 5, 6, 7, 'Back'];
+  const keyButtons = ['Enter', '0', '1', '2', '3', '4', '5', '6', '7', 'Backspace'];
 
   /** Add event listeners */
-  const handleClick = (e) => {
-    console.log('You clicked the button');
+  const handleClick = (key) => {
+    console.log(`You clicked the ${key} button`);
   }
 
-  const handleKeyPress = (e) => {
-    console.log(e.target.value);
-  }
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (keyButtons.includes(e.key)) {
+        console.log(`You pressed the ${e.key} key`);
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyPress);
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    }
+  });
 
   return (
     <KeyboardSection>
       <KeyboardRow>
-        {keyButtons.map((digit) => {
-          return <KeyboardButton 
-                    key={digit}
-                    onClick={handleClick}
-                    onKeyDown={handleKeyPress}
-                  >
-                    {digit}
-                  </KeyboardButton>
-        })}
+        {keyButtons.map((key) => (
+          <KeyboardButton 
+            key={key}
+            onClick={() => handleClick(key)}
+          >
+            {key}
+          </KeyboardButton>
+        ))}
       </KeyboardRow>
     </KeyboardSection>
   )
