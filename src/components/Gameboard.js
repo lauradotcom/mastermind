@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { theme } from '../styles';
+import { Scoreboard } from './Scoreboard';
 
 /** Styled Components */
 const GameContainer = styled.div`
@@ -92,7 +93,7 @@ export const Gameboard = ({ guesses }) => {
             </TileRow>
           ))}
         </TileGrid>
-        { /** Scoreboard */}
+          <Scoreboard />
         <div></div>
       </GameContainer>
     </div>
