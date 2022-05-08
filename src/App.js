@@ -103,24 +103,22 @@ function App() {
     /** Make sure current round contains all four digits */
     if (guesses[_round].every(value => value)) {
       console.log('Submitting your guess for evaluation...');
-      /** Add a getFeedback function here? */
-      getFeedback();
-      /** Advance to the next round */ 
-      round.current = _round + 1;
-      digit.current = 0;
+      /** Evaluate current guess against answer */
+      console.log(guesses[_round]);
+      console.log(answer);
+      if (guesses[_round].join() === answer.join()) {
+        console.log('YOU WON!');
+      } else if (_round !== 9) {
+        /** Advance to the next round */ 
+        console.log('TRY AGAIN');
+        round.current = _round + 1;
+        digit.current = 0;
+      } else {
+        /** End the game */ 
+        console.log('BETTER LUCK NEXT TIME');
+      }
     } else {
       console.log('Hey you need to do all the numbers!');
-    }
-  }
-
-  const getFeedback = () => {
-    const _round = round.current;
-    console.log(guesses[_round]);
-    console.log(answer);
-    if (guesses[_round].join() === answer.join()) {
-      console.log('YOU WON!');
-    } else {
-      console.log('TRY AGAIN');
     }
   }
 
