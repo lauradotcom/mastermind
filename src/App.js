@@ -99,7 +99,6 @@ function App() {
 
   const submitGuess = () => {
     const _round = round.current;
-    console.log(guesses);
     /** Make sure current round contains all four digits */
     if (guesses[_round].every(value => value)) {
       console.log('Submitting your guess for evaluation...');
