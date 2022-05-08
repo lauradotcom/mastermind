@@ -26,9 +26,6 @@ function App() {
     9: Array.from({ length: 4 }).fill(''),
   });
 
-  const [colors, setColors] = useState({
-
-  })
 
   /** Define inputs for number entry */
   const keyButtons = ['Enter', '0', '1', '2', '3', '4', '5', '6', '7', 'Backspace'];
@@ -102,6 +99,7 @@ function App() {
 
   const submitGuess = () => {
     const _round = round.current;
+    getFeedback();
     /** Make sure current round contains all four digits */
     if (guesses[_round].every(value => value)) {
       console.log('Submitting your guess for evaluation...');
@@ -124,12 +122,37 @@ function App() {
     }
   }
 
+  /** This will probably be called inside the 'else if' block inside the submitGuess function...? Or would we want in all cases? */
+  const getFeedback = () => {
+    const _round = round.current;
+    /** bulls = right # right pos, cows = right # wrong pos */
+    let bullsCount = 0;
+    let cowsCount = 0;
+    for (let i = 0; i < guesses[_round].length; i++) {
+      if (guesses[_round][i] === answer.at(i)) {
+        bullsCount++;
+      }
+      else if (answer.includes(guesses[_round][i])) {
+        cowsCount++;
+      }
+    }
+    console.log(`Bulls: ${bullsCount}`);
+    console.log(`Cows: ${cowsCount} (but probably not accurate)`);
+
+    const feedback = {
+      bulls: bullsCount,
+      cows: cowsCount
+    }
+    return feedback;
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Header />
       <Gameboard
         guesses={guesses}
         display={display}
+        getFeedback={getFeedback}
       />
       <Keyboard
         keyButtons={keyButtons}
