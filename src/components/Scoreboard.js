@@ -6,11 +6,6 @@ import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 
 /** Styled Components */
-/** Note: 
- * "Bulls" = right number, right position
- * "Cows" = right number, wrong position 
- * Using because it's a succinct way to name components but come up with something better...
- */
 
 const FeedbackContainer = styled.div`
   display: flex;
