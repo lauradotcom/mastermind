@@ -35,27 +35,7 @@ const KeyboardButton = styled.button`
   }
 `
 
-export const Keyboard = () => {
-
-  const keyButtons = ['Enter', '0', '1', '2', '3', '4', '5', '6', '7', 'Backspace'];
-
-  /** Add event listeners to support keyboard entry or Keyboard component clicks */
-  const handleClick = (key) => {
-    console.log(`You clicked the ${key} button`);
-  }
-
-  useEffect(() => {
-    const handleKeyPress = (e) => {
-      if (keyButtons.includes(e.key)) {
-        console.log(`You pressed the ${e.key} key`);
-      }
-    }
-
-    document.addEventListener('keydown', handleKeyPress);
-    return () => {
-      document.removeEventListener('keydown', handleKeyPress);
-    }
-  });
+export const Keyboard = ({ keyButtons, handleClick, submitGuess }) => {
 
   return (
     <KeyboardSection>

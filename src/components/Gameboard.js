@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-export const Gameboard = ({ board, setBoard }) => {
+export const Gameboard = ({ guesses }) => {
 
   /** Styled Components */
   const GameContainer = styled.div`
@@ -52,10 +52,10 @@ export const Gameboard = ({ board, setBoard }) => {
       <GameContainer>
         <div>{ /** Empty div to create space on the left side of gameboard in desktop */ }</div>
         <TileGrid>
-          {board.map((i) => (
+          {Object.values(guesses).map((guess, i) => (
             <TileRow key={i}>
-              {[0, 1, 2, 3].map((i) => (
-                <Tile key={i}></Tile>
+              {guess.map((digit, i) => (
+                <Tile key={i}>{digit}</Tile>
               ))}
             </TileRow>
           ))}
