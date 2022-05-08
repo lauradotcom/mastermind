@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+import { theme } from '../styles';
 
 export const Gameboard = ({ guesses }) => {
 
@@ -42,6 +43,9 @@ export const Gameboard = ({ guesses }) => {
     border: 1px solid #8D9F9B;
     font-size: 2rem;
     user-select: none;
+    color: #FFF;
+    background-color: blueviolet;
+    font-family: ${props => props.theme.fonts.headings}
   `
 
   /** Add functionality here */
