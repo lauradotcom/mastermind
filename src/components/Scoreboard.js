@@ -19,7 +19,7 @@ const FeedbackColumn = styled.div`
   padding: 0.25rem 1rem;
 `
 
-export const Scoreboard = () => {
+export const Scoreboard = ({ getFeedback }) => {
 
   return (
     <FeedbackContainer>

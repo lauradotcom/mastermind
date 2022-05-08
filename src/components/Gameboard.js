@@ -39,7 +39,7 @@ const Tile = styled.div`
   font-family: ${props => props.theme.fonts.headings};
 `
 
-export const Gameboard = ({ guesses }) => {
+export const Gameboard = ({ guesses, getFeedback }) => {
 
   const applyTileColor = (number) => {
     switch(number) {
@@ -93,7 +93,7 @@ export const Gameboard = ({ guesses }) => {
             </TileRow>
           ))}
         </TileGrid>
-          <Scoreboard />
+          <Scoreboard getFeedback={getFeedback} />
         <div></div>
       </GameContainer>
     </div>
