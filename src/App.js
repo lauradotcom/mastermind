@@ -37,6 +37,7 @@ function App() {
     const handleKeyPress = (e) => {
       const pressedKey = e.key;
       if (keyButtons.includes(pressedKey)) {
+        enterDigit(pressedKey);
         console.log(`You pressed the ${pressedKey} key`);
       }
     }
@@ -85,7 +86,7 @@ function App() {
     setGuesses((prev) => {
       const newGuesses = {...prev };
       newGuesses[_round][_digit] = pressedKey;
-      console.log(newGuesses);
+      //console.log(newGuesses);
       return newGuesses;
     })
 
@@ -96,15 +97,18 @@ function App() {
   /** TODO: Add submitGuess function */
   /** Need to check if ALL digits exist */
   const submitGuess = () => {
-    //const _digit = digit.current;
     const _round = round.current;
+    console.log(guesses);
+    if (guesses[_round].every(value => value)) {
+      console.log('Submitting your guess for evaluation...');
+      /** Add a getFeedback function here? */
 
-    console.log('Submitting your guess for evaluation...');
-    /** Add a getFeedback function here? */
-
-    /** Advance to the next round */ 
-    round.current = _round + 1;
-    digit.current = 0;
+      /** Advance to the next round */ 
+      round.current = _round + 1;
+      digit.current = 0;
+    } else {
+      console.log('Hey you need to do all the numbers!');
+    }
   }
 
   return (
