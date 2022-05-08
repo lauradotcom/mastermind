@@ -24,6 +24,10 @@ function App() {
     7: Array.from({ length: 4 }).fill(''),
     8: Array.from({ length: 4 }).fill(''),
     9: Array.from({ length: 4 }).fill(''),
+  });
+
+  const [colors, setColors] = useState({
+
   })
 
   /** Define inputs for number entry */
@@ -89,7 +93,6 @@ function App() {
     setGuesses((prev) => {
       const newGuesses = {...prev };
       newGuesses[_round][_digit] = pressedKey;
-      //console.log(newGuesses);
       return newGuesses;
     })
 
