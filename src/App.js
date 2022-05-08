@@ -47,7 +47,7 @@ function App() {
     }
   });
 
-  /** TODO: Add submitGuess function */
+  /** Render number guesses in gameboard on click/keypress */
   let digit = useRef(0);
   let round = useRef(0);
 
@@ -58,6 +58,8 @@ function App() {
     } else if (pressedKey !== 'Enter') {
       display(pressedKey);
       console.log('Adding the digit to the grid...')
+    } else {
+      submitGuess();
     }
   }
 
@@ -87,8 +89,22 @@ function App() {
       return newGuesses;
     })
 
-    digit.current++;
+    digit.current = _digit + 1;
   }
+  }
+
+  /** TODO: Add submitGuess function */
+  /** Need to check if ALL digits exist */
+  const submitGuess = () => {
+    //const _digit = digit.current;
+    const _round = round.current;
+
+    console.log('Submitting your guess for evaluation...');
+    /** Add a getFeedback function here? */
+
+    /** Advance to the next round */ 
+    round.current = _round + 1;
+    digit.current = 0;
   }
 
   return (
