@@ -1,5 +1,4 @@
 import React from 'react';
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
@@ -8,54 +7,69 @@ import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 /** Styled Components */
 
 const FeedbackContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-`
-
-const FeedbackColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 0.25rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr repeat(10, 4fr);
+  gap: 6px;
+  justify-content: center;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-family: ${props => props.theme.fonts.body}
 `
 
 const FeedbackHeader = styled.div`
-  border-bottom: 1px solid pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:-1rem;
+`
+const FeedbackRow = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 `
 
-export const Scoreboard = ({ getFeedback }) => {
+const FeedbackCount = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+export const Scoreboard = ({ feedback }) => {
 
   return (
     <FeedbackContainer>
-      <FeedbackColumn>
-          <FeedbackHeader>
-          <CheckCircleIcon 
-            sx={{
-              color: '#37A862'
-            }}
-          />
-          <CheckCircleOutlinedIcon
-            sx={{
-              color: '#37A862'
-            }}
-          />
-          {/** Generate a FeedbackRow(?) mapped to each count */}
-          </FeedbackHeader>
-      </FeedbackColumn>
-      <FeedbackColumn>
-        <FeedbackHeader>
-          <CheckCircleIcon 
-            sx={{
-              color: '#37A862'
-            }}
-          />
-          <CancelOutlinedIcon
-            sx={{
-              color: '#FD817D'
-            }}
-          />
-        </FeedbackHeader>
-      </FeedbackColumn>
+      <FeedbackRow>
+      <FeedbackHeader>
+        <CheckCircleIcon 
+          sx={{
+            color: '#37A862'
+          }}
+        />
+        <CheckCircleOutlinedIcon
+          sx={{
+            color: '#37A862'
+          }}
+        />   
+      </FeedbackHeader>
+      <FeedbackHeader>
+        <CheckCircleIcon 
+          sx={{
+            color: '#37A862'
+          }}
+        />
+        <CancelOutlinedIcon
+          sx={{
+            color: '#FD817D'
+          }}
+        />
+      </FeedbackHeader>
+      </FeedbackRow>
+      {Object.values(feedback).map((hint, i) => (
+          <FeedbackRow key={i}>
+            {hint.map((count, i) => (
+              <FeedbackCount key={i}>{count}</FeedbackCount>
+            ))}
+          </FeedbackRow>
+        ))}
     </FeedbackContainer>
   )
 }

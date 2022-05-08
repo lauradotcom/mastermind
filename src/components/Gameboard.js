@@ -2,7 +2,6 @@
 import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { theme } from '../styles';
 import { Scoreboard } from './Scoreboard';
 
 /** Styled Components */
@@ -39,7 +38,7 @@ const Tile = styled.div`
   font-family: ${props => props.theme.fonts.headings};
 `
 
-export const Gameboard = ({ guesses, getFeedback }) => {
+export const Gameboard = ({ guesses, feedback }) => {
 
   const applyTileColor = (number) => {
     switch(number) {
@@ -93,7 +92,7 @@ export const Gameboard = ({ guesses, getFeedback }) => {
             </TileRow>
           ))}
         </TileGrid>
-          <Scoreboard getFeedback={getFeedback} />
+          <Scoreboard feedback={feedback} />
         <div></div>
       </GameContainer>
     </div>
