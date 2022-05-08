@@ -9,6 +9,9 @@ import './App.css';
 
 function App() {
 
+  /** Temporary computer answer */
+  const answer = ['4', '6', '2', '1'];
+
   /** Initialize the gameboard contents */
   const [guesses, setGuesses] = useState({
     0: Array.from({ length: 4 }).fill(''),
@@ -30,18 +33,18 @@ function App() {
   const handleClick = (key) => {
     const pressedKey = key;
     enterDigit(pressedKey);
-    console.log(`You clicked the ${pressedKey} button`);
+    //console.log(`You clicked the ${pressedKey} button`);
+  }
+
+  const handleKeyPress = (e) => {
+    const pressedKey = e.key;
+    if (keyButtons.includes(pressedKey)) {
+      enterDigit(pressedKey);
+      //console.log(`You pressed the ${pressedKey} key`);
+    }
   }
 
   useEffect(() => {
-    const handleKeyPress = (e) => {
-      const pressedKey = e.key;
-      if (keyButtons.includes(pressedKey)) {
-        enterDigit(pressedKey);
-        console.log(`You pressed the ${pressedKey} key`);
-      }
-    }
-
     document.addEventListener('keydown', handleKeyPress);
     return () => {
       document.removeEventListener('keydown', handleKeyPress);
@@ -53,10 +56,10 @@ function App() {
   let round = useRef(0);
 
   const enterDigit = (pressedKey) => {
-    if (pressedKey === 'Backspace') {
+    if (pressedKey.toLowerCase() === 'backspace') {
       erase();
       console.log('Time to go back!')
-    } else if (pressedKey !== 'Enter') {
+    } else if (pressedKey.toLowerCase() !== 'enter') {
       display(pressedKey);
       console.log('Adding the digit to the grid...')
     } else {
@@ -94,20 +97,30 @@ function App() {
   }
   }
 
-  /** TODO: Add submitGuess function */
-  /** Need to check if ALL digits exist */
   const submitGuess = () => {
     const _round = round.current;
     console.log(guesses);
+    /** Make sure current round contains all four digits */
     if (guesses[_round].every(value => value)) {
       console.log('Submitting your guess for evaluation...');
       /** Add a getFeedback function here? */
-
+      getFeedback();
       /** Advance to the next round */ 
       round.current = _round + 1;
       digit.current = 0;
     } else {
       console.log('Hey you need to do all the numbers!');
+    }
+  }
+
+  const getFeedback = () => {
+    const _round = round.current;
+    console.log(guesses[_round]);
+    console.log(answer);
+    if (guesses[_round].join() === answer.join()) {
+      console.log('YOU WON!');
+    } else {
+      console.log('TRY AGAIN');
     }
   }
 
