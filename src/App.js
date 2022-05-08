@@ -151,11 +151,11 @@ function App() {
     console.log(`Bulls: ${bullsCount}`);
     console.log(`Cows: ${cowsCount} (but probably not accurate)`);
 
-    const feedback = {
-      bulls: bullsCount,
-      cows: cowsCount
-    }
-    return feedback;
+    setFeedback((prev) => {
+      const newFeedback = {...prev};
+      newFeedback[_round] = [bullsCount, cowsCount];
+      return newFeedback;
+    })
   }
 
   return (
@@ -164,7 +164,7 @@ function App() {
       <Gameboard
         guesses={guesses}
         display={display}
-        getFeedback={getFeedback}
+        feedback={feedback}
       />
       <Keyboard
         keyButtons={keyButtons}
