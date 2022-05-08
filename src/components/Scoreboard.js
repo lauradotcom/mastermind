@@ -15,8 +15,12 @@ const FeedbackContainer = styled.div`
 
 const FeedbackColumn = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding: 0.25rem 1rem;
+`
+
+const FeedbackHeader = styled.div`
+  border-bottom: 1px solid pink;
 `
 
 export const Scoreboard = ({ getFeedback }) => {
@@ -24,28 +28,33 @@ export const Scoreboard = ({ getFeedback }) => {
   return (
     <FeedbackContainer>
       <FeedbackColumn>
-        <CheckCircleIcon 
-          sx={{
-            color: '#37A862'
-          }}
-        />
-        <CheckCircleOutlinedIcon
-          sx={{
-            color: '#37A862'
-          }}
-        />
+          <FeedbackHeader>
+          <CheckCircleIcon 
+            sx={{
+              color: '#37A862'
+            }}
+          />
+          <CheckCircleOutlinedIcon
+            sx={{
+              color: '#37A862'
+            }}
+          />
+          {/** Generate a FeedbackRow(?) mapped to each count */}
+          </FeedbackHeader>
       </FeedbackColumn>
       <FeedbackColumn>
-        <CheckCircleIcon 
-          sx={{
-            color: '#37A862'
-          }}
-        />
-        <CancelOutlinedIcon
-          sx={{
-            color: '#FD817D'
-          }}
-        />
+        <FeedbackHeader>
+          <CheckCircleIcon 
+            sx={{
+              color: '#37A862'
+            }}
+          />
+          <CancelOutlinedIcon
+            sx={{
+              color: '#FD817D'
+            }}
+          />
+        </FeedbackHeader>
       </FeedbackColumn>
     </FeedbackContainer>
   )
