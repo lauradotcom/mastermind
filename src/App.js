@@ -26,6 +26,18 @@ function App() {
     9: Array.from({ length: 4 }).fill(''),
   });
 
+  const [feedback, setFeedback] = useState({
+    0: Array.from({ length: 2 }).fill(''),
+    1: Array.from({ length: 2 }).fill(''),
+    2: Array.from({ length: 2 }).fill(''),
+    3: Array.from({ length: 2 }).fill(''),
+    4: Array.from({ length: 2 }).fill(''),
+    5: Array.from({ length: 2 }).fill(''),
+    6: Array.from({ length: 2 }).fill(''),
+    7: Array.from({ length: 2 }).fill(''),
+    8: Array.from({ length: 2 }).fill(''),
+    9: Array.from({ length: 2 }).fill(''),
+  });
 
   /** Define inputs for number entry */
   const keyButtons = ['Enter', '0', '1', '2', '3', '4', '5', '6', '7', 'Backspace'];
