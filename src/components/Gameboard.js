@@ -43,13 +43,13 @@ export const Gameboard = ({ guesses, feedback }) => {
   const applyTileColor = (number) => {
     switch(number) {
       case '0':
-        return '#E8384F';
+        return '#E37CFF';
       case '1':
         return '#FDAE33';
       case '2':
-        return '#EECC16';
+        return '#A4C61A';
       case '3':
-        return '#62BB35';
+        return '#37A862';
       case '4':
         return '#208EA3';
       case '5':
