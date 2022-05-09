@@ -59,13 +59,13 @@ export const Gameboard = ({ guesses, feedback }) => {
       case '7':
         return '#EA4E9D';
       default:
-        return 'F9F8F8';
+        return '';
     }
   }
 
 
   return(
-    <div>
+    <div css={{backgroundColor: props => props.theme.colors.background}}>
       <GameContainer>
         <div>{ /** Empty div to create space on the left side of gameboard in desktop */ }</div>
         <TileGrid>

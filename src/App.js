@@ -1,11 +1,11 @@
 /** @jsxImportSource @emotion/react */
-import { ThemeProvider } from '@emotion/react';
+import { ThemeProvider, css } from '@emotion/react';
 import { useState, useEffect, useRef } from 'react';
 import { Header } from './components/Header';
 import { Gameboard } from './components/Gameboard';
 import { Keyboard } from './components/Keyboard';
 import { Outcome } from './components/Outcome';
-import { theme } from './styles.js';
+import { theme, darkTheme } from './styles.js';
 import axios from 'axios';
 import './App.css';
 
@@ -188,10 +188,18 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Header />
+      <div css={css`
+          background-color: ${props => props.theme.colors.background}
+          `
+        }>
       <Gameboard
         guesses={guesses}
         display={display}
         feedback={feedback}
+        css={css`
+          background-color: ${props => props.theme.colors.background}
+          `
+        }
       />
       <Keyboard
         keyButtons={keyButtons}
@@ -204,6 +212,7 @@ function App() {
         submitGuess={submitGuess}
         outcome={outcome}
       />
+      </div>
     </ThemeProvider>
   );
 }

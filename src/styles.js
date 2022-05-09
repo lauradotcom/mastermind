@@ -1,13 +1,12 @@
+import { createTheme } from '@mui/material/styles';
 import styled from '@emotion/styled';
 import '@fontsource/syne-mono';
 import '@fontsource/inter';
 
 export const theme = {
   colors: {
-    backgroundDark: '#252628',
-    backgroundLight: '#F9F8F8',
-    primaryDark: '#F9F8F8',
-    primaryLight: '#252628',
+    background: '#252628',
+    primary: '#F9F8F8',
   },
   fonts: {
     headings: `'Syne Mono', monospace`,
@@ -18,7 +17,7 @@ export const theme = {
 export const Title = styled.h1`
   font-size: 1.25rem;
   font-family: ${(props) => props.theme.fonts.headings};
-  color: hotpink;
+  color: #F9F8F8;
   @media screen and (min-width: 1024px) {
     font-size: 3rem;
   }

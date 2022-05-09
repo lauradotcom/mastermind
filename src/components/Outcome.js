@@ -8,7 +8,7 @@ const MessageContainer = styled.div`
   align-items: center;
   top: 10vh;
   width: 100vw;
-  background: #000;
+  background: #111;
   margin: 0 auto;
   border-radius: 10px;
   padding: 1rem;

@@ -40,6 +40,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #252628;
+  color: #F9F8F8;
 }
 
 /* HTML5 display-role reset for older browsers */
