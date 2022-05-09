@@ -23,6 +23,7 @@ const KeyboardRow = styled.div`
 const KeyboardButton = styled.button`
   display: flex;
   justify-items: center;
+  align-items: center;
   height: 50px;
   background-color: #8D9F9B;
   color: #F8F8F8;
