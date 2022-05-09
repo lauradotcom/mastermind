@@ -84,6 +84,7 @@ export const Gameboard = ({ guesses, feedback }) => {
                     user-select: none;
                     color: #FFF;
                     background-color: ${applyTileColor(digit)};
+                    border-color: ${applyTileColor(digit)};
                   `}
                 >
                   {digit}
