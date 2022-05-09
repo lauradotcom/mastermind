@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
 const MessageContainer = styled.div`
   display: flex;
@@ -17,16 +18,24 @@ const MessageContainer = styled.div`
 `
 const Message = styled.p`
   font-family: ${props => props.theme.fonts.headings};
+  font-size: 1.25rem;
 `
 
-export const Outcome = ({ outcome }) => {
+const Answer = styled.span`
+  font-size: 1rem;
+`
+
+export const Outcome = ({ outcome, answer }) => {
 
   return (  
     outcome ? (
       <MessageContainer>
         {
         outcome === 'win'? <Message>You win!</Message> 
-        : <Message>Better luck next time!</Message>
+        : <Message>
+            Better luck next time!<br />
+            <Answer>Correct answer: {answer}</Answer>
+          </Message>
         }
       </MessageContainer>
     )

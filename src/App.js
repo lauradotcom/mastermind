@@ -203,6 +203,7 @@ function App() {
       <Outcome
         submitGuess={submitGuess}
         outcome={outcome}
+        answer={answer}
       />
     </ThemeProvider>
   );
