@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
+import BackspaceIcon from '@mui/icons-material/Backspace';
 
 const KeyboardSection = styled.section`
   height: 200px;
@@ -46,7 +47,7 @@ export const Keyboard = ({ keyButtons, handleClick, submitGuess }) => {
             key={key}
             onClick={() => handleClick(key)}
           >
-            {key}
+            {key === 'Backspace' ? <BackspaceIcon /> : key}
           </KeyboardButton>
         ))}
       </KeyboardRow>
