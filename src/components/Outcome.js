@@ -1,27 +1,35 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const WinMessage = styled.div`
-  height: 100vh;
-  width: 100vw;
+const MessageContainer = styled.div`
+  display: flex;
   position: absolute;
-  top: 0;
+  justify-content: center;
+  align-items: center;
+  top: 10vh;
+  width: 100vw;
   background: #000;
-  opacity: 50%;
   margin: 0 auto;
-  text-align: center;
-  color: #000;
-  font-family: ${props => props.theme.fonts.headings}
+  border-radius: 10px;
+  padding: 1rem;
+  color: #FFF;
   z-index: 1;
 `
-
-const LoseMessage = styled.div`
-
+const Message = styled.p`
+  font-family: ${props => props.theme.fonts.headings};
 `
 
-export const Outcome = ({ submitGuess }) => {
+export const Outcome = ({ outcome }) => {
 
-  return (
-    <WinMessage>{submitGuess}</WinMessage>
+  return (  
+    outcome ? (
+      <MessageContainer>
+        {
+        outcome === 'win'? <Message>You win!</Message> 
+        : <Message>Better luck next time!</Message>
+        }
+      </MessageContainer>
+    )
+    : <></> 
   )
 }
