@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Header } from './components/Header';
 import { Gameboard } from './components/Gameboard';
 import { Keyboard } from './components/Keyboard';
+import { Outcome } from './components/Outcome';
 import { theme } from './styles.js';
 import axios from 'axios';
 import './App.css';
@@ -59,6 +60,8 @@ function App() {
     8: Array.from({ length: 2 }).fill(''),
     9: Array.from({ length: 2 }).fill(''),
   });
+
+  const [outcome, setOutcome] = useState('');
 
   /** Define inputs for number entry */
   const keyButtons = ['Enter', '0', '1', '2', '3', '4', '5', '6', '7', 'Backspace'];
@@ -141,6 +144,7 @@ function App() {
       console.log(answer);
       if (guesses[_round].join() === answer.join()) {
         console.log('YOU WON!');
+        setOutcome('win');
       } else if (_round !== 9) {
         /** Advance to the next round */ 
         console.log('TRY AGAIN');
@@ -149,10 +153,12 @@ function App() {
       } else {
         /** End the game */ 
         console.log('BETTER LUCK NEXT TIME');
+        setOutcome('lose');
       }
     } else {
       console.log('Hey you need to do all the numbers!');
     }
+    console.log(outcome);
   }
 
   /** This will probably be called inside the 'else if' block inside the submitGuess function...? Or would we want in all cases? */
@@ -193,6 +199,10 @@ function App() {
         setGuesses={setGuesses}
         display={display}
         erase={erase}
+      /> 
+      <Outcome
+        submitGuess={submitGuess}
+        outcome={outcome}
       />
     </ThemeProvider>
   );
