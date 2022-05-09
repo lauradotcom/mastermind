@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { css, ThemeProvider } from '@emotion/react';
+import { ThemeProvider } from '@emotion/react';
 import { useState, useEffect, useRef } from 'react';
 import { Header } from './components/Header';
 import { Gameboard } from './components/Gameboard';
