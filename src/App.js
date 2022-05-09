@@ -188,18 +188,10 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Header />
-      <div css={css`
-          background-color: ${props => props.theme.colors.background}
-          `
-        }>
       <Gameboard
         guesses={guesses}
         display={display}
         feedback={feedback}
-        css={css`
-          background-color: ${props => props.theme.colors.background}
-          `
-        }
       />
       <Keyboard
         keyButtons={keyButtons}
@@ -212,7 +204,6 @@ function App() {
         submitGuess={submitGuess}
         outcome={outcome}
       />
-      </div>
     </ThemeProvider>
   );
 }
