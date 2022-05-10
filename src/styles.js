@@ -33,6 +33,6 @@ export const Button = styled.button`
   font-family: ${(props) => props.theme.fonts.body};
   font-weight: 600;
   font-size: 1rem;
-  margin: 1rem 0;
+  margin: 1rem auto;
   padding: 1rem;
 `

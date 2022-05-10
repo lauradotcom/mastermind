@@ -28,6 +28,7 @@ const Message = styled.p`
 const Answer = styled.span`
   display: block;
   font-size: 1rem;
+  text-align: center;
 `
 
 export const Outcome = ({ outcome, answer }) => {
