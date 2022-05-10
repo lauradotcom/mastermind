@@ -9,12 +9,15 @@ import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 const FeedbackContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr repeat(10, 4fr);
+  grid-template-rows: repeat(10, 1fr);
   gap: 6px;
   justify-content: center;
   padding: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-family: ${props => props.theme.fonts.body}
+  @media screen and (min-width: 1024px) {
+    gap: 10px;
+  }
 `
 
 const FeedbackHeader = styled.div`
@@ -28,15 +31,30 @@ const FeedbackRow = styled.div`
   grid-template-columns: 1fr 1fr;
 `
 
-const FeedbackCount = styled.div`
+const FeedbackColumn = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center; 
+`
+
+const FeedbackCountWrapper = styled.div`
+  height: 1.75rem;
+  width: 1.75rem;
+  background-color: #444;
+  border-radius: 50%;
+`
+const FeedbackCount = styled.span`
+  display: block;
+  text-align: center;
+  line-height: 1.75rem;
 `
 
 export const Scoreboard = ({ feedback }) => {
 
   return (
     <FeedbackContainer>
+      {/** 
       <FeedbackRow>
       <FeedbackHeader>
         <CheckCircleIcon 
@@ -63,10 +81,15 @@ export const Scoreboard = ({ feedback }) => {
         />
       </FeedbackHeader>
       </FeedbackRow>
+      */}
       {Object.values(feedback).map((hint, i) => (
           <FeedbackRow key={i}>
             {hint.map((count, i) => (
-              <FeedbackCount key={i}>{count}</FeedbackCount>
+              <FeedbackColumn key={i}>
+                <FeedbackCountWrapper>
+                  <FeedbackCount>{count}</FeedbackCount>
+                </FeedbackCountWrapper>
+              </FeedbackColumn>
             ))}
           </FeedbackRow>
         ))}
