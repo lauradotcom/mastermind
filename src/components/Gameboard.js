@@ -22,7 +22,7 @@ const TileGrid = styled.div`
   padding: 16px;
   margin: 0 auto;
   @media screen and (min-width: 1024px) {
-    gap: 16px;
+    gap: 10px;
     width: 300px;
   }
 `
@@ -32,6 +32,9 @@ const TileRow = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 6px;
+  @media screen and (min-width: 1024px) {
+    gap: 10px;
+  }
 `
 
 const Tile = styled.div`
