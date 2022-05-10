@@ -13,15 +13,6 @@ export const theme = {
   }
 }
 
-export const Title = styled.h1`
-  font-size: 1.25rem;
-  font-family: ${(props) => props.theme.fonts.headings};
-  color: #F9F8F8;
-  @media screen and (min-width: 1024px) {
-    font-size: 3rem;
-  }
-`;
-
 export const Button = styled.button`
   display: flex;
   justify-content: center;

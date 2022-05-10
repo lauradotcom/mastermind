@@ -1,7 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
-import { Title } from '../styles.js';
+
+const Title = styled.h1`
+  font-size: 1.25rem;
+  font-family: ${(props) => props.theme.fonts.headings};
+  color: #F9F8F8;
+  @media screen and (min-width: 1024px) {
+    font-size: 3rem;
+  }
+`;
 
 export const Header = () => {
   return (
