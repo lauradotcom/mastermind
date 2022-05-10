@@ -1,7 +1,7 @@
 # Codebreaker 👾
 Codebreaker is a Mastermind implementation built with React using the Emotion and Material UI libraries.
 
-[Screenshot](/screenshot.png)
+  ![Screenshot](/screenshot.png)
 
 ## How I Built It
 I used styled components via Emotion to minimize the number of component files required and streamline the code. Hooks allowed me to write the game logic using state.
