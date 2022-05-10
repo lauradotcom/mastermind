@@ -31,10 +31,10 @@ const FeedbackWrapper = styled.div`
   align-items: center; 
   height: 1.75rem;
   width: 1.75rem;
-  background-color: #444;
+  background-color: #111;
   border-radius: 50%;
   &:nth-of-type(2n) {
-    background-color: #FFF;
+    background-color: #EEE;
     color: #000;
   }
 `
