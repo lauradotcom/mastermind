@@ -5,6 +5,7 @@ import { Header } from './components/Header';
 import { Gameboard } from './components/Gameboard';
 import { Keyboard } from './components/Keyboard';
 import { Outcome } from './components/Outcome';
+import { initBoard, initFeedback } from './util/GameDefaults';
 import { theme, darkTheme } from './styles.js';
 import axios from 'axios';
 import './App.css';
@@ -35,32 +36,8 @@ function App() {
   }, []);
 
   /** Initialize the gameboard contents */
-  const [guesses, setGuesses] = useState({
-    0: Array.from({ length: 4 }).fill(''),
-    1: Array.from({ length: 4 }).fill(''),
-    2: Array.from({ length: 4 }).fill(''),
-    3: Array.from({ length: 4 }).fill(''),
-    4: Array.from({ length: 4 }).fill(''),
-    5: Array.from({ length: 4 }).fill(''),
-    6: Array.from({ length: 4 }).fill(''),
-    7: Array.from({ length: 4 }).fill(''),
-    8: Array.from({ length: 4 }).fill(''),
-    9: Array.from({ length: 4 }).fill(''),
-  });
-
-  const [feedback, setFeedback] = useState({
-    0: Array.from({ length: 2 }).fill(''),
-    1: Array.from({ length: 2 }).fill(''),
-    2: Array.from({ length: 2 }).fill(''),
-    3: Array.from({ length: 2 }).fill(''),
-    4: Array.from({ length: 2 }).fill(''),
-    5: Array.from({ length: 2 }).fill(''),
-    6: Array.from({ length: 2 }).fill(''),
-    7: Array.from({ length: 2 }).fill(''),
-    8: Array.from({ length: 2 }).fill(''),
-    9: Array.from({ length: 2 }).fill(''),
-  });
-
+  const [guesses, setGuesses] = useState(initBoard);
+  const [feedback, setFeedback] = useState(initFeedback);
   const [outcome, setOutcome] = useState('');
 
   /** Define inputs for number entry */
@@ -185,6 +162,28 @@ function App() {
     })
   }
 
+  /** Allow game to be reset */
+  /** CAUTION: Passing initBoard variable into setGuesses breaks the game! */
+  const startNewGame = () => {
+    setAnswer(getAnswer());
+    setGuesses({  
+      0: Array.from({ length: 4 }).fill(''),
+      1: Array.from({ length: 4 }).fill(''),
+      2: Array.from({ length: 4 }).fill(''),
+      3: Array.from({ length: 4 }).fill(''),
+      4: Array.from({ length: 4 }).fill(''),
+      5: Array.from({ length: 4 }).fill(''),
+      6: Array.from({ length: 4 }).fill(''),
+      7: Array.from({ length: 4 }).fill(''),
+      8: Array.from({ length: 4 }).fill(''),
+      9: Array.from({ length: 4 }).fill(''),
+    });
+    setFeedback(initFeedback);
+    setOutcome('');
+    round.current = 0;
+    digit.current=0;
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Header />
@@ -209,6 +208,7 @@ function App() {
         getAnswer={getAnswer}
         setFeedback={setFeedback}
         setGuesses={setGuesses}
+        startNewGame={startNewGame}
       />
     </ThemeProvider>
   );

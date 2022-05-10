@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# Codebreaker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Codebreaker is a Mastermind implementation built with React using the Emotion and Material UI libraries.
 
-## Available Scripts
+## How I Built It
+I approached this game as a combination of the original M
 
-In the project directory, you can run:
+### File Structure
 
-### `npm start`
+### Extensions
+I wanted the game to feel similar to vintage Mastermind and be intuitive to play, so I mapped each digit to its own color using a colorblind-safe palette.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Technologies
+* React
+* Emotion
+* Material UI
+* Axios
+* npm
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How To Install
+1. Fork or clone this repository and install the dependencies: `npm install`
+2. Run: `npm start`
 
-### `npm test`
+Navigate to http://localhost:3000 in a web browser.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## How To Play
+Using the provided keyboard or your own keyboard, enter any combination of numbers between 0 and 7.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The pegs on the right contain feedback about your guess:
+  * Black circle: number of digits that are correct and in the correct spot
+  * White circle: number of digits that are correct but in the wrong spot
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+You have 10 attempts to guess the correct combination of numbers.
