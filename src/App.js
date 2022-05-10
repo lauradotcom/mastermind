@@ -205,6 +205,10 @@ function App() {
         outcome={outcome}
         setOutcome={setOutcome}
         answer={answer}
+        setAnswer={setAnswer}
+        getAnswer={getAnswer}
+        setFeedback={setFeedback}
+        setGuesses={setGuesses}
       />
     </ThemeProvider>
   );

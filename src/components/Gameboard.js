@@ -19,7 +19,7 @@ const TileGrid = styled.div`
   grid-template-rows: repeat(10, 1fr);
   gap: 6px;
   width: 275px;
-  padding: 16px;
+  padding: 1rem;
   margin: 0 auto;
   @media screen and (min-width: 1024px) {
     gap: 10px;
