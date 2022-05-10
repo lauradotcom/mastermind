@@ -16,6 +16,7 @@ export const Header = () => {
         color: '#F9F8F8',
         height: '8vh',
         textAlign: 'center',
+        borderBottom: '1px solid #8D9F9B',
         padding: '2%',
       }}
     >

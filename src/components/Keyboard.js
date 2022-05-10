@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
+import BackspaceIcon from '@mui/icons-material/Backspace';
 
 const KeyboardSection = styled.section`
   height: 200px;
@@ -23,13 +24,14 @@ const KeyboardRow = styled.div`
 const KeyboardButton = styled.button`
   display: flex;
   justify-items: center;
+  align-items: center;
   height: 50px;
   background-color: #8D9F9B;
   color: #F8F8F8;
   border-radius: 10px;
   font-family: 'Inter', sans-serif;
   padding: 0.5rem;
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 768px) {
     margin: 0.5rem;
     padding: 1rem;
   }
@@ -45,7 +47,7 @@ export const Keyboard = ({ keyButtons, handleClick, submitGuess }) => {
             key={key}
             onClick={() => handleClick(key)}
           >
-            {key}
+            {key === 'Backspace' ? <BackspaceIcon /> : key}
           </KeyboardButton>
         ))}
       </KeyboardRow>

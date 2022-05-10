@@ -19,10 +19,10 @@ const TileGrid = styled.div`
   grid-template-rows: repeat(10, 1fr);
   gap: 6px;
   width: 275px;
-  padding: 16px;
+  padding: 1rem;
   margin: 0 auto;
   @media screen and (min-width: 1024px) {
-    gap: 16px;
+    gap: 10px;
     width: 300px;
   }
 `
@@ -32,6 +32,9 @@ const TileRow = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 6px;
+  @media screen and (min-width: 1024px) {
+    gap: 10px;
+  }
 `
 
 const Tile = styled.div`
@@ -43,13 +46,13 @@ export const Gameboard = ({ guesses, feedback }) => {
   const applyTileColor = (number) => {
     switch(number) {
       case '0':
-        return '#E8384F';
+        return '#E37CFF';
       case '1':
         return '#FDAE33';
       case '2':
-        return '#EECC16';
+        return '#A4C61A';
       case '3':
-        return '#62BB35';
+        return '#37A862';
       case '4':
         return '#208EA3';
       case '5':
@@ -59,13 +62,13 @@ export const Gameboard = ({ guesses, feedback }) => {
       case '7':
         return '#EA4E9D';
       default:
-        return 'F9F8F8';
+        return '';
     }
   }
 
 
   return(
-    <div>
+    <div css={{backgroundColor: props => props.theme.colors.background}}>
       <GameContainer>
         <div>{ /** Empty div to create space on the left side of gameboard in desktop */ }</div>
         <TileGrid>
@@ -84,6 +87,7 @@ export const Gameboard = ({ guesses, feedback }) => {
                     user-select: none;
                     color: #FFF;
                     background-color: ${applyTileColor(digit)};
+                    border-color: ${applyTileColor(digit)};
                   `}
                 >
                   {digit}
