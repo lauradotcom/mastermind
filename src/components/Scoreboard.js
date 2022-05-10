@@ -22,6 +22,7 @@ const FeedbackRow = styled.div`
   grid-template-columns: 1fr 1fr;
   justify-items: center;
   align-items: center;
+  gap: 0.5rem;
 `
 
 const FeedbackWrapper = styled.div`
