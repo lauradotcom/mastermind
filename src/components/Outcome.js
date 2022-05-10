@@ -54,16 +54,22 @@ const Answer = styled.span`
   text-align: center;
 `
 
-export const Outcome = ({ outcome, answer }) => {
+export const Outcome = ({ outcome, setOutcome, answer }) => {
+
+  const closeModal = () => {
+    setOutcome('');
+  }
 
   return (  
     outcome ? (
       <MessageModal>
         <MessageContainer>
         <CancelOutlinedIcon
-          css={{
+          onClick={() => closeModal()}
+          sx={{
             alignSelf: 'flex-end',
             color: '#F9F9F8',
+            cursor: 'pointer',
           }}
         />
           {
