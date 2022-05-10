@@ -22,3 +22,17 @@ export const Title = styled.h1`
     font-size: 3rem;
   }
 `;
+
+export const Button = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4178BC;
+  color: #FFF;
+  text-transform: uppercase;
+  font-family: ${(props) => props.theme.fonts.body};
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 1rem 0;
+  padding: 1rem;
+`
