@@ -47,14 +47,12 @@ function App() {
   const handleClick = (key) => {
     const pressedKey = key;
     enterDigit(pressedKey);
-    //console.log(`You clicked the ${pressedKey} button`);
   }
 
   const handleKeyPress = (e) => {
     const pressedKey = e.key;
     if (keyButtons.includes(pressedKey)) {
       enterDigit(pressedKey);
-      //console.log(`You pressed the ${pressedKey} key`);
     }
   }
 
@@ -75,7 +73,6 @@ function App() {
       console.log('Time to go back!')
     } else if (pressedKey.toLowerCase() !== 'enter') {
       display(pressedKey);
-      console.log('Adding the digit to the grid...')
     } else {
       submitGuess();
     }
@@ -115,21 +112,17 @@ function App() {
     getFeedback();
     /** Make sure current round contains all four digits */
     if (guesses[_round].every(value => value)) {
-      console.log('Submitting your guess for evaluation...');
       /** Evaluate current guess against answer */
       console.log(guesses[_round]);
-      console.log(answer);
+      console.log(answer); // keeping these in here for quicker game demo
       if (guesses[_round].join() === answer.join()) {
-        console.log('YOU WON!');
         setOutcome('win');
       } else if (_round !== 9) {
         /** Advance to the next round */ 
-        console.log('TRY AGAIN');
         round.current = _round + 1;
         digit.current = 0;
       } else {
         /** End the game */ 
-        console.log('BETTER LUCK NEXT TIME');
         setOutcome('lose');
       }
     } else {
@@ -138,7 +131,6 @@ function App() {
     console.log(outcome);
   }
 
-  /** This will probably be called inside the 'else if' block inside the submitGuess function...? Or would we want in all cases? */
   const getFeedback = () => {
     const _round = round.current;
     /** bulls = right # right pos, cows = right # wrong pos */
@@ -152,8 +144,6 @@ function App() {
         cowsCount++;
       }
     }
-    console.log(`Bulls: ${bullsCount}`);
-    console.log(`Cows: ${cowsCount} (but probably not accurate)`);
 
     setFeedback((prev) => {
       const newFeedback = {...prev};
