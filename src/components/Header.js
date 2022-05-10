@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { theme, Title } from '../styles.js';
+import { Title } from '../styles.js';
 
 export const Header = () => {
   return (

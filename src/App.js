@@ -1,12 +1,12 @@
 /** @jsxImportSource @emotion/react */
-import { ThemeProvider, css } from '@emotion/react';
+import { ThemeProvider } from '@emotion/react';
 import { useState, useEffect, useRef } from 'react';
 import { Header } from './components/Header';
 import { Gameboard } from './components/Gameboard';
 import { Keyboard } from './components/Keyboard';
 import { Outcome } from './components/Outcome';
 import { initBoard, initFeedback } from './util/GameDefaults';
-import { theme, darkTheme } from './styles.js';
+import { theme } from './styles.js';
 import axios from 'axios';
 import './App.css';
 

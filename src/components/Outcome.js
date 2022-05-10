@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
 import { Button } from '../styles';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 
