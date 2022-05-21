@@ -164,21 +164,9 @@ function App() {
   }
 
   /** Allow game to be reset */
-  /** CAUTION: Passing initBoard variable into setGuesses breaks the game! */
   const startNewGame = () => {
     setAnswer(getAnswer());
-    setGuesses({  
-      0: Array.from({ length: 4 }).fill(''),
-      1: Array.from({ length: 4 }).fill(''),
-      2: Array.from({ length: 4 }).fill(''),
-      3: Array.from({ length: 4 }).fill(''),
-      4: Array.from({ length: 4 }).fill(''),
-      5: Array.from({ length: 4 }).fill(''),
-      6: Array.from({ length: 4 }).fill(''),
-      7: Array.from({ length: 4 }).fill(''),
-      8: Array.from({ length: 4 }).fill(''),
-      9: Array.from({ length: 4 }).fill(''),
-    });
+    setGuesses(initBoard);
     setFeedback(initFeedback);
     setOutcome('');
     round.current = 0;
