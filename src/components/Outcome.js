@@ -52,8 +52,8 @@ const Answer = styled.span`
   font-size: 1rem;
   text-align: center;
 `
-
-export const Outcome = ({ outcome, setOutcome, answer, startNewGame }) => {
+/** TO DO: Create an object to hold all (or most) of these props */
+export const Outcome = ({ outcome, setOutcome, answer, startNewGame, wins, losses }) => {
 
   const closeModal = () => {
     setOutcome('');
@@ -79,6 +79,8 @@ export const Outcome = ({ outcome, setOutcome, answer, startNewGame }) => {
               <Answer>Correct answer: {answer}</Answer>
             </Message>
           }
+          <div>Wins: {wins}</div>
+          <div>Losses: {losses}</div>
           <Button onClick={() => startNewGame()}>{outcome === 'win' ? 'Play Again' : 'Try Again'}</Button>
         </MessageContainer>
       </MessageModal>
