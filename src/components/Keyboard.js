@@ -31,6 +31,7 @@ const KeyboardButton = styled.button`
   border-radius: 10px;
   font-family: 'Inter', sans-serif;
   padding: 0.5rem;
+  cursor: pointer;
   @media screen and (min-width: 768px) {
     margin: 0.5rem;
     padding: 1rem;

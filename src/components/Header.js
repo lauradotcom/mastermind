@@ -34,6 +34,7 @@ export const Header = ({ startNewGame }) => {
       <div>
         <ReplayIcon 
           onClick={() => startNewGame()}
+          css={{cursor: 'pointer'}}
         />
       </div>
     </header>
