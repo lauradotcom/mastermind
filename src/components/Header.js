@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled';
+import ReplayIcon from '@mui/icons-material/Replay';
 
 const Title = styled.h1`
   font-size: 1.25rem;
@@ -10,7 +11,8 @@ const Title = styled.h1`
   }
 `;
 
-export const Header = () => {
+export const Header = ({ startNewGame }) => {
+
   return (
     <header
       css={{
@@ -29,7 +31,11 @@ export const Header = () => {
     >
       <div></div>
       <Title>Codebreaker</Title>
-      <div></div>
+      <div>
+        <ReplayIcon 
+          onClick={() => startNewGame()}
+        />
+      </div>
     </header>
   )
 }
