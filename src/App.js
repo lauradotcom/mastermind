@@ -5,7 +5,7 @@ import { Header } from './components/Header';
 import { Gameboard } from './components/Gameboard';
 import { Keyboard } from './components/Keyboard';
 import { Outcome } from './components/Outcome';
-import { initBoard, initFeedback } from './util/GameDefaults';
+import { initGrade } from './util/GameDefaults';
 import { theme } from './styles.js';
 import axios from 'axios';
 import './App.css';
@@ -22,6 +22,7 @@ function App() {
       }
     } 
     catch (error) {
+      /** TO DO: Write a function to generate an array of random digits */
       console.error(error);
       console.error('No dice bro');
       setAnswer(['6', '4', '2', '1']);
@@ -35,10 +36,16 @@ function App() {
     getAnswer();
   }, []);
 
+  /** Define initial board variables */
+  const initBoard = initGrade(4);
+  const initFeedback = initGrade(2);
+
   /** Initialize the gameboard contents */
   const [guesses, setGuesses] = useState(initBoard);
-  const [feedback, setFeedback] = useState(initFeedback);
+  const [feedback, setFeedback] = useState(initGrade(2));
   const [outcome, setOutcome] = useState('');
+  const [wins, setWins] = useState(0);
+  const [losses, setLosses]= useState(0);
 
   /** Define inputs for number entry */
   const keyButtons = ['Enter', '0', '1', '2', '3', '4', '5', '6', '7', 'Backspace'];
@@ -117,6 +124,8 @@ function App() {
       console.log(answer); // keeping these in here for quicker game demo
       if (guesses[_round].join() === answer.join()) {
         setOutcome('win');
+        setWins(wins + 1);
+        console.log(wins);
       } else if (_round !== 9) {
         /** Advance to the next round */ 
         round.current = _round + 1;
@@ -124,6 +133,8 @@ function App() {
       } else {
         /** End the game */ 
         setOutcome('lose');
+        setLosses(losses + 1);
+        console.log(losses);
       }
     } else {
       console.log('Hey you need to do all the numbers!');
@@ -176,7 +187,9 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header />
+      <Header
+        startNewGame={startNewGame}
+      />
       <Gameboard
         guesses={guesses}
         display={display}
@@ -194,6 +207,8 @@ function App() {
         setOutcome={setOutcome}
         answer={answer}
         startNewGame={startNewGame}
+        wins={wins}
+        losses={losses}
       />
     </ThemeProvider>
   );
